@@ -1,0 +1,8 @@
+services:
+  vite-dev:
+    image: app-production
+    build:
+     context: ../../
+     dockerfile: build/production/Dockerfile
+    ports:
+      - 8080:8080

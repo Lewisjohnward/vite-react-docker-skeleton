@@ -1,0 +1,22 @@
+services:
+  vite-dev:
+    image: app-dev
+    build:
+     context: ../../
+     dockerfile: build/development/Dockerfile
+     target: base
+    volumes:
+      - type: bind
+        source: ../../.
+        target: /app/
+      - type: volume
+        target: /app/node_modules/
+      - type: bind
+        source: ../../vite.config.ts
+        target: /app/vite.config.ts
+    networks:
+      - frontend
+    ports:
+      - 5000:5173
+networks:
+  frontend:
